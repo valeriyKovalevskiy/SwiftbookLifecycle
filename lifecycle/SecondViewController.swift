@@ -32,6 +32,8 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // срабатывает после загрузки вьюю вью загрузилось, не видим на экране, но есть в памяти.
+        
+        //инициализация переменных и объектов
 
         print("viewDidLoad")
     }
@@ -39,20 +41,31 @@ class SecondViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //cрабатывает перед появлением вью на экране
+        
+        //для более тонкой настройки вью, которые нужно сделать без анимации
 
         print("viewWillAppear")
     }
     
+    
+    override func updateViewConstraints() {
+        print("updateViewConstraints")
+        
+        //вызывается перед вью вил лэйаут сабвьюс
+        //обновляем констрейнты, затем обращаемся к суперклассу
+        super.updateViewConstraints()
+    }
+    
     override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
         //срабатывает перед тем, как размер вью поменяется под размер экрана
-
+        //изменение размеров сабвью и их положение
+        
         print("viewWillLayoutSubviews")
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         //срабатывает после того, как размер вью изменился под размер экрана
+        //сохранение последнего положения элементов
 
         print("viewDidLayoutSubviews")
     }
@@ -60,6 +73,8 @@ class SecondViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //вью появился на экране
+        //появляется больше одного раза
+        //лучше не хранить свойства и экземпляры объекта
 
         print("viewDidAppear")
     }
@@ -73,6 +88,7 @@ class SecondViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        //сброс значений и параметров, отключение анимаций
         print("viewDidDisappear")
     }
     
@@ -84,11 +100,13 @@ class SecondViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print("viewWillTransition")
         //срабатывает при повороте экрана девайса
+        //для обратотки констрейнт и анимаций при повороте
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         //срабатывает при заполнении памяти устройства
+        //обнуление не используемых объектов
     }
     
     
