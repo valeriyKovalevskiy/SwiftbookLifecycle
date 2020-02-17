@@ -12,9 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToSecondVC" {
+            let destinationVC = segue.destination as! SecondViewController
+            destinationVC.someProperties = ""
+        }
+    }
 }
 
